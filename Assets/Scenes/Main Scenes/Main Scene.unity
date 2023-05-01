@@ -1201,7 +1201,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.4166665
+  orthographic size: 6.265625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1400,7 +1400,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1478994877}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!66 &795660408
 CompositeCollider2D:
@@ -1526,7 +1526,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1514759311
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1829,7 +1829,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1478994877}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &918280759
 TilemapRenderer:
@@ -1870,7 +1870,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -298427171
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2443,9 +2443,9 @@ Transform:
   m_Children:
   - {fileID: 149363878}
   - {fileID: 51500959}
-  - {fileID: 918280758}
   - {fileID: 795660407}
   - {fileID: 2042475802}
+  - {fileID: 918280758}
   - {fileID: 1480825269}
   - {fileID: 2008564985}
   m_Father: {fileID: 0}
@@ -5622,7 +5622,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1478994877}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &2042475803
 TilemapRenderer:
@@ -5728,11 +5728,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2920270492343190719, guid: 76a90ce75207fec4ea73dfd3e03deca1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2920270492343190719, guid: 76a90ce75207fec4ea73dfd3e03deca1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.53
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2920270492343190719, guid: 76a90ce75207fec4ea73dfd3e03deca1, type: 3}
       propertyPath: m_LocalPosition.z
