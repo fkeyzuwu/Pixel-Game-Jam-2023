@@ -1,30 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(
     typeof(Rigidbody2D), 
-    typeof(Collider2D))
+    typeof(BoxCollider2D))
 ]
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterBasicController
 {
-
-    [Header("Movement")]
-    [SerializeField] private float movementSpeed = 5.0f;
-
-    [Header("Jump")] 
-    [SerializeField] private float jumpForce = 16.0f;
-    
-    private Rigidbody2D _rb;
     private float _horizontalInput;
-    private BoxCollider2D _boxCollider;
-
-    private void Start()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-        _boxCollider = GetComponent<BoxCollider2D>();
-    }
 
     private void Update()
     {
@@ -38,12 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(_horizontalInput * movementSpeed, _rb.velocity.y);
-    }
-
-    private void Jump()
-    {
-        _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+        Vector2 moveDelta = new Vector2(_horizontalInput, 0);
+        Move(moveDelta);
     }
 
     private bool CanJump()
@@ -53,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Bounds boxColliderBounds = _boxCollider.bounds;
+        Bounds boxColliderBounds = BoxCollider.bounds;
         RaycastHit2D raycastHit = Physics2D.BoxCast(
             boxColliderBounds.center,
             boxColliderBounds.size,
