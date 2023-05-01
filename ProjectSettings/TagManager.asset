@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Floor
     uniqueID: 3996540125
+    locked: 0
+  - name: Wall
+    uniqueID: 1514759311
     locked: 0
   - name: Player
     uniqueID: 3163864209
