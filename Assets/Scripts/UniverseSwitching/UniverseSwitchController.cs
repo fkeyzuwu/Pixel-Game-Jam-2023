@@ -23,7 +23,7 @@ public class UniverseSwitchController : MonoBehaviour
             redUniverseGameObject.SetActive(true);
             purpleUniverseGameObject.SetActive(false);
         }
-        else
+        else if (universe == Universe.Purple)
         {
             purpleUniverseGameObject.SetActive(true);
             redUniverseGameObject.SetActive(false);
