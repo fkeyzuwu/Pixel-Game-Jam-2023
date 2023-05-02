@@ -7,7 +7,7 @@ using UnityEngine;
 public class CharacterBasicController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float movementSpeed = 5.0f;
+    [SerializeField] protected float movementSpeed = 5.0f;
 
     [Header("Jump")] 
     [SerializeField] private float jumpForce = 16.0f;
@@ -15,8 +15,8 @@ public class CharacterBasicController : MonoBehaviour
     protected Rigidbody2D Rigidbody;
     protected BoxCollider2D BoxCollider;
     
-    public Vector2 MoveDelta { get; private set; }
-    public bool IsWalking { get; private set; }
+    public Vector2 MoveDelta { get; protected set; }
+    public bool IsWalking { get; protected set; }
     
     public virtual void Start()
     {
@@ -24,7 +24,7 @@ public class CharacterBasicController : MonoBehaviour
         BoxCollider = GetComponent<BoxCollider2D>();
     }
     
-    protected void Move(Vector2 moveDelta)
+    protected virtual void Move(Vector2 moveDelta)
     {
         IsWalking = moveDelta != Vector2.zero;
         MoveDelta = moveDelta;
