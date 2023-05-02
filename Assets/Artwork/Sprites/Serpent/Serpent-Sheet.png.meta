@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 796cbeb2f7424814c9c81d4c61e35ee5
+guid: 976c92505b32d4a4aa1f2145531cf3d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,7 +105,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Serpent_0
+      name: Serpent-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017021de680e93d48b7945ee32ac7631
+      internalID: 1270258061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Serpent-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177a6bf58bcb26144ab1554669001dac
+      internalID: -44208457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Serpent-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5674162302db67949acf7cc648e31ab0
+      internalID: -1803550000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Serpent-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08718da448a8a3041ac032f08bac6352
+      internalID: 2142557865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Serpent-Sheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 635f2bb2a686028468b496dafed9b042
-      internalID: 1733883061
+      spriteID: d79c25c512c99b24a8629b094ed92def
+      internalID: 765530638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Serpent_1
+      name: Serpent-Sheet_5
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eed5a68facf7464fa90bdb9eb4efaef
-      internalID: 526613806
+      spriteID: 02ebbbda531c86c4ca714e3bd1428c6f
+      internalID: 61680388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Serpent_2
+      name: Serpent-Sheet_6
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fd7e9940f059164f88a545b6bfa2c8a
-      internalID: 1037554485
+      spriteID: d60e8ed7933edd048934a5679af01529
+      internalID: 985564513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Serpent_3
+      name: Serpent-Sheet_7
       rect:
         serializedVersion: 2
         x: 96
@@ -182,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 257c74343a232284fba76cb61e79fa38
-      internalID: 1876373667
+      spriteID: 1b8be4e3cac143f49bde8d7c225f85bc
+      internalID: 2059965558
       vertices: []
       indices: 
       edges: []
@@ -199,10 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Serpent_0: 1733883061
-      Serpent_1: 526613806
-      Serpent_2: 1037554485
-      Serpent_3: 1876373667
+      Serpent-Sheet_0: 1270258061
+      Serpent-Sheet_1: -44208457
+      Serpent-Sheet_2: -1803550000
+      Serpent-Sheet_3: 2142557865
+      Serpent-Sheet_4: 765530638
+      Serpent-Sheet_5: 61680388
+      Serpent-Sheet_6: 985564513
+      Serpent-Sheet_7: 2059965558
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

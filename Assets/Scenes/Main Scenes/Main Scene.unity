@@ -1201,7 +1201,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.265625
+  orthographic size: 8.09375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5768,3 +5768,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76a90ce75207fec4ea73dfd3e03deca1, type: 3}
+--- !u!1001 &7631086909517752981
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3492328093200538353, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f4fa95759e94dd4c9155967eca75018, type: 2}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249516, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249519, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249519, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249519, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1270258061, guid: 976c92505b32d4a4aa1f2145531cf3d5, type: 3}
+    - target: {fileID: 9219673314408249519, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219673314408249520, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+      propertyPath: m_Name
+      value: Serpent
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2167186773859616627, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a35764a375c5f7444947ff2311bde56b, type: 3}
