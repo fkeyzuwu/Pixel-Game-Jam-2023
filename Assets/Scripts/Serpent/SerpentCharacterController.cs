@@ -57,7 +57,7 @@ public class SerpentCharacterController : CharacterBasicController
 
     private void Float() 
     {
-        floatPhase += floatSpeed;
+        floatPhase = (floatPhase + floatSpeed) % 360; //infinite cycle
         var currentPos = transform.position;
         transform.position = new Vector2(currentPos.x, currentPos.y + Mathf.Sin(floatPhase) / floatAmount);
     }
