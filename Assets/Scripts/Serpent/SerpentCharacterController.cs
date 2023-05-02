@@ -9,6 +9,10 @@ public class SerpentCharacterController : CharacterBasicController
     private int currentWaypointIndex = 0;
     private bool finishedMoving = false;
 
+    private float floatPhase = 0f;
+    private float floatSpeed = 0.1f;
+    private float floatAmount = 35f; //the higher the value, the less extreme the effect
+
     private void Awake()
     {
         foreach(Transform child in waypointObject) 
@@ -17,22 +21,24 @@ public class SerpentCharacterController : CharacterBasicController
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        Float();
+
         if (finishedMoving) return;
 
-        if(Vector2.Distance(transform.position, waypoints[currentWaypointIndex]) > 0.1f) 
+        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex]) > 0.1f)
         {
             Vector2 direction = waypoints[currentWaypointIndex] - transform.position;
             Move(direction.normalized);
         }
-        else 
+        else
         {
-            if(waypoints.Count > currentWaypointIndex + 1) 
+            if (waypoints.Count > currentWaypointIndex + 1)
             {
                 currentWaypointIndex++;
             }
-            else 
+            else
             {
                 finishedMoving = true;
                 IsWalking = false;
@@ -47,5 +53,12 @@ public class SerpentCharacterController : CharacterBasicController
         IsWalking = moveDelta != Vector2.zero;
         MoveDelta = moveDelta;
         Rigidbody.velocity = new Vector2(moveDelta.x * movementSpeed, moveDelta.y * movementSpeed);
+    }
+
+    private void Float() 
+    {
+        floatPhase += floatSpeed;
+        var currentPos = transform.position;
+        transform.position = new Vector2(currentPos.x, currentPos.y + Mathf.Sin(floatPhase) / floatAmount);
     }
 }
