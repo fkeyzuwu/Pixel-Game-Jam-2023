@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(
@@ -6,7 +7,32 @@ using UnityEngine;
 ]
 public class PlayerController : CharacterBasicController
 {
+    #region Singleton
+    public static PlayerController Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
+
+    [Header("Universe Variables")]
+    [SerializeField] private Universe startingUniverse = Universe.None;
+    
     private float _horizontalInput;
+
+    public override void Start()
+    {
+        base.Start();
+        UniverseSwitchManager.Instance.SetUniverse(startingUniverse);
+    }
 
     private void Update()
     {
@@ -15,6 +41,11 @@ public class PlayerController : CharacterBasicController
         if (Input.GetButtonDown("Jump") && CanJump())
         {
             Jump();
+        }
+
+        if (Input.GetButtonDown("SwitchUniverse"))
+        {
+            SwitchUniverse();
         }
     }
 
@@ -42,4 +73,9 @@ public class PlayerController : CharacterBasicController
         return raycastHit.collider != null;
     }
 
+    private void SwitchUniverse()
+    {
+        UniverseSwitchManager.Instance.SwitchUniverse();
+    }
+    
 }
