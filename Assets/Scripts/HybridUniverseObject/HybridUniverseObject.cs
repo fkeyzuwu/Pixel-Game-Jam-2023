@@ -11,7 +11,7 @@ public abstract class HybridUniverseObject : MonoBehaviour
 
     void OnDestroy()
     {
-        UniverseSwitchManager.Instance.OnUniverseChangedCallback += ChangeObject;
+        UniverseSwitchManager.Instance.OnUniverseChangedCallback -= ChangeObject;
     }
 
     protected abstract void ChangeObject(Universe universe);
