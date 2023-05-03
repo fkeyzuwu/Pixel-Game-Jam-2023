@@ -5,7 +5,7 @@ using UnityEngine;
 public class SerpentCharacterController : CharacterBasicController
 {
     [SerializeField] private Transform waypointObject;
-    private List<Vector3> waypoints = new List<Vector3>();
+    private List<Waypoint> waypoints = new List<Waypoint>();
     private int currentWaypointIndex = 0;
     private bool finishedMoving = false;
 
@@ -13,11 +13,12 @@ public class SerpentCharacterController : CharacterBasicController
     private float floatSpeed = 0.1f;
     private float floatAmount = 35f; //the higher the value, the less extreme the effect
 
+    private bool isStopped = false;
     private void Awake()
     {
         foreach(Transform child in waypointObject) 
         {
-            waypoints.Add(child.position);
+            waypoints.Add(child.GetComponent<Waypoint>());
         }
     }
 
@@ -25,11 +26,11 @@ public class SerpentCharacterController : CharacterBasicController
     {
         Float();
 
-        if (finishedMoving) return;
+        if (finishedMoving || isStopped) return;
 
-        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex]) > 0.1f)
+        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].transform.position) > 0.1f)
         {
-            Vector2 direction = waypoints[currentWaypointIndex] - transform.position;
+            Vector2 direction = waypoints[currentWaypointIndex].transform.position - transform.position;
             Move(direction.normalized);
         }
         else
@@ -37,6 +38,10 @@ public class SerpentCharacterController : CharacterBasicController
             if (waypoints.Count > currentWaypointIndex + 1)
             {
                 currentWaypointIndex++;
+                if (waypoints[currentWaypointIndex].isStoppingPoint) 
+                {
+                    StartCoroutine(StopAtWaypoint(waypoints[currentWaypointIndex].stopTime));
+                }
             }
             else
             {
@@ -60,5 +65,15 @@ public class SerpentCharacterController : CharacterBasicController
         floatPhase = (floatPhase + floatSpeed) % 360; //infinite cycle
         var currentPos = transform.position;
         transform.position = new Vector2(currentPos.x, currentPos.y + Mathf.Sin(floatPhase) / floatAmount);
+    }
+
+    IEnumerator StopAtWaypoint(float waypointStopTime) 
+    {
+        isStopped = true;
+        IsWalking = false;
+        MoveDelta = Vector2.zero;
+        Rigidbody.velocity = Vector2.zero;
+        yield return new WaitForSeconds(waypointStopTime);
+        isStopped = false;
     }
 }
