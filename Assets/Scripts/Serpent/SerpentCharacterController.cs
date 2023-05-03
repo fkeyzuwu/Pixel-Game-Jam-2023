@@ -14,12 +14,18 @@ public class SerpentCharacterController : CharacterBasicController
     private float floatAmount = 35f; //the higher the value, the less extreme the effect
 
     private bool isStopped = false;
+
+    [SerializeField] private ParticleSystem particles;
     private void Awake()
     {
         foreach(Transform child in waypointObject) 
         {
             waypoints.Add(child.GetComponent<Waypoint>());
         }
+
+        LeanTween.alpha(gameObject, 0f, 0f);
+        LeanTween.alpha(gameObject, 1, 1f);
+        particles.Play();
     }
 
     private void FixedUpdate()
@@ -45,10 +51,7 @@ public class SerpentCharacterController : CharacterBasicController
             }
             else
             {
-                finishedMoving = true;
-                IsWalking = false;
-                MoveDelta = Vector2.zero;
-                Rigidbody.velocity = Vector2.zero;
+                Despawn();
             }
         }
     }
@@ -75,5 +78,15 @@ public class SerpentCharacterController : CharacterBasicController
         Rigidbody.velocity = Vector2.zero;
         yield return new WaitForSeconds(waypointStopTime);
         isStopped = false;
+    }
+
+    private void Despawn() 
+    {
+        finishedMoving = true;
+        IsWalking = false;
+        MoveDelta = Vector2.zero;
+        Rigidbody.velocity = Vector2.zero;
+        GetComponent<ParticleSystem>().Stop();
+        LeanTween.alpha(gameObject, 0, 2.5f).setOnComplete(() => Destroy(gameObject));
     }
 }
