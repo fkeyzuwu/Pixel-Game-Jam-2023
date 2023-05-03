@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameLayersManager : MonoBehaviour
@@ -20,5 +21,6 @@ public class GameLayersManager : MonoBehaviour
 
     public LayerMask groundLayerMask;
     public LayerMask wallLayerMask;
-
+    public LayerMask grabbableObjectsLayerMask;
+    
 }
