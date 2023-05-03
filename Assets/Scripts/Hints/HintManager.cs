@@ -31,7 +31,6 @@ public class HintManager : MonoBehaviour
         hintText.text = hint;
         _hintCanvas.enabled = true;
         LeanTween.scale(hintBorder.rectTransform, new Vector3(1, 1, 1), 1f).setEase(LeanTweenType.easeOutBounce);
-        // TODO: Add LeanTweet with DOScale(new Vector3(1, 1, 1), 1f).SetEase(Ease.OutBounce);
     }
 
     private void DisableHint()
@@ -43,5 +42,4 @@ public class HintManager : MonoBehaviour
                 hintText.text = "";
             });
     }
-
 }
