@@ -6,7 +6,7 @@ public class UniverseSwitchController : MonoBehaviour
     [SerializeField] public GameObject redUniverseGameObject;
     [SerializeField] public GameObject purpleUniverseGameObject;
 
-    private void Awake()
+    private void Start()
     {
         UniverseSwitchManager.Instance.OnUniverseChangedCallback += UpdateUniverseGameObjects;
     }

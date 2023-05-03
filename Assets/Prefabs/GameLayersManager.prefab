@@ -50,3 +50,6 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  grabbableObjectsLayerMask:
+    serializedVersion: 2
+    m_Bits: 128

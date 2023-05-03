@@ -19,15 +19,10 @@ public class UniverseSwitchManager : MonoBehaviour
     }
     #endregion
     
-    private Universe _currentUniverse;
+    private Universe _currentUniverse = Universe.None;
     
     public delegate void OnUniverseChanged(Universe universe);
     public OnUniverseChanged OnUniverseChangedCallback;
-    
-    private void Start()
-    {
-        _currentUniverse = Universe.None;
-    }
 
     public void SwitchUniverse()
     {
@@ -41,7 +36,6 @@ public class UniverseSwitchManager : MonoBehaviour
         _currentUniverse = universe;
         OnUniverseChangedCallback?.Invoke(_currentUniverse);
     }
-
 }
 
 [Serializable]
