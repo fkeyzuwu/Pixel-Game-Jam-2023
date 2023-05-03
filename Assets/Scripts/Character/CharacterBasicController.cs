@@ -14,7 +14,9 @@ public class CharacterBasicController : MonoBehaviour
 
     protected Rigidbody2D Rigidbody;
     protected BoxCollider2D BoxCollider;
-    
+    private float _initialMovementSpeed;
+    private float _initialJumpForce;
+
     public Vector2 MoveDelta { get; protected set; }
     public bool IsWalking { get; protected set; }
     
@@ -22,6 +24,8 @@ public class CharacterBasicController : MonoBehaviour
     {
         Rigidbody = GetComponent<Rigidbody2D>();
         BoxCollider = GetComponent<BoxCollider2D>();
+        _initialMovementSpeed = movementSpeed;
+        _initialJumpForce = jumpForce;
     }
     
     protected virtual void Move(Vector2 moveDelta)
@@ -34,5 +38,25 @@ public class CharacterBasicController : MonoBehaviour
     protected void Jump()
     {
         Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, jumpForce);
+    }
+
+    public void RestoreMovementSpeedToDefault()
+    {
+        SetMovementSpeed(_initialMovementSpeed);
+    }
+    
+    public void RestoreJumpForceToDefault()
+    {
+        SetJumpForce(_initialJumpForce);
+    }
+    
+    public void SetMovementSpeed(float newMovementSpeed)
+    {
+        movementSpeed = newMovementSpeed;
+    }
+
+    public void SetJumpForce(float newJumpForce)
+    {
+        jumpForce = newJumpForce;
     }
 }
