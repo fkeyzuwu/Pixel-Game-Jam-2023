@@ -2,23 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DynamicBox : MonoBehaviour
+public class ScalingObject : HybridUniverseObject
 {
     [SerializeField] private Vector2 redUniverseScale;
     [SerializeField] private Vector2 purpleUniverseScale;
     [SerializeField] private float tweenDuration;
     [SerializeField] private LeanTweenType easeType;
-    void Start()
-    {
-        UniverseSwitchManager.Instance.OnUniverseChangedCallback += ChangeSize;
-    }
-
-    private void OnDestroy()
-    {
-        UniverseSwitchManager.Instance.OnUniverseChangedCallback += ChangeSize;
-    }
-
-    private void ChangeSize(Universe universe) 
+    protected override void ChangeObject(Universe universe)
     {
         if(universe == Universe.Red) 
         {
