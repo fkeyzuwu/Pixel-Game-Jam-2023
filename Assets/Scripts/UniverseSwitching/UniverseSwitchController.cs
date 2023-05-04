@@ -29,5 +29,10 @@ public class UniverseSwitchController : MonoBehaviour
             redUniverseStaticObjects.SetActive(false);
             purpleUniverseStaticObjects.SetActive(true);
         }
+        else if(universe == Universe.None) 
+        {
+            redUniverseStaticObjects.SetActive(false);
+            purpleUniverseStaticObjects.SetActive(false);
+        }
     }
 }
