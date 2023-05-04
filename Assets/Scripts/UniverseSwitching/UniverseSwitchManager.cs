@@ -19,22 +19,21 @@ public class UniverseSwitchManager : MonoBehaviour
     }
     #endregion
     
-    private Universe _currentUniverse = Universe.None;
+    public Universe currentUniverse;
     
     public delegate void OnUniverseChanged(Universe universe);
     public OnUniverseChanged OnUniverseChangedCallback;
 
     public void SwitchUniverse()
     {
-        if (_currentUniverse == Universe.None) return;
-        _currentUniverse = _currentUniverse == Universe.Purple ? Universe.Red : Universe.Purple;
-        OnUniverseChangedCallback?.Invoke(_currentUniverse);
+        currentUniverse = currentUniverse == Universe.Purple ? Universe.Red : Universe.Purple;
+        OnUniverseChangedCallback?.Invoke(currentUniverse);
     }
 
     public void SetUniverse(Universe universe)
     {
-        _currentUniverse = universe;
-        OnUniverseChangedCallback?.Invoke(_currentUniverse);
+        currentUniverse = universe;
+        OnUniverseChangedCallback?.Invoke(currentUniverse);
     }
 }
 
