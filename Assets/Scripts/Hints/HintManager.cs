@@ -6,12 +6,28 @@ using UnityEngine.UI;
 
 public class HintManager : MonoBehaviour
 {
+    #region Singleton
+    public static HintManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
+    
     [SerializeField] private TextMeshProUGUI hintText;
     [SerializeField] private Image hintBorder;
 
     private Canvas _hintCanvas;
 
-    private void Awake()
+    private void Start()
     {
         _hintCanvas = GetComponent<Canvas>();
         _hintCanvas.enabled = false;
