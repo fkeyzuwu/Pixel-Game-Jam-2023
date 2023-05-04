@@ -1,4 +1,8 @@
+using System;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using Debug = UnityEngine.Debug;
 
 [RequireComponent(typeof(PlayerController))]
 public class GrabObjects : MonoBehaviour
@@ -44,7 +48,7 @@ public class GrabObjects : MonoBehaviour
                     grabRayPoint.transform.right,
                     rayDistance,
                     GameLayersManager.Instance.grabbableObjectsLayerMask);
-        
+                
                 if (hit.collider == null) return;
                 if (hit.collider.GetComponent<GrabbableObject>() == null) return;
                 
@@ -58,6 +62,7 @@ public class GrabObjects : MonoBehaviour
             }
             else
             {
+                if (IsGrabbedObjectCollides()) return;
                 _grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 _grabbedObject.transform.SetParent(_grabbedObjectParent);
                 _grabbedObject = null;
@@ -78,6 +83,43 @@ public class GrabObjects : MonoBehaviour
         {
             _playerController.RestoreMovementSpeedToDefault();
             _playerController.RestoreJumpForceToDefault();
+        }
+    }
+
+    private bool IsGrabbedObjectCollides()
+    {
+        Collider2D grabbedObjectCollider = _grabbedObject.gameObject.GetComponent<BoxCollider2D>();
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(
+            grabbedObjectCollider.bounds.center,
+            grabbedObjectCollider.bounds.size,
+            0,
+            grabbedObjectCollider.transform.right, 
+            0);
+        foreach (var hit in hits)
+        {
+            Debug.Log(hit.collider.tag);
+            Debug.Log(hit.collider);
+            if (hit.collider.gameObject != _grabbedObject.gameObject)
+            {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
+    public void FixedUpdate()
+    {
+        if (_grabbedObject != null)
+        {
+            Collider2D grabbedObjectCollider = _grabbedObject.gameObject.GetComponent<BoxCollider2D>();
+            RaycastHit2D hit = BoxCastDrawer.BoxCastAndDraw(
+                grabbedObjectCollider.bounds.center,
+                grabbedObjectCollider.bounds.size,
+                0,
+                grabbedObjectCollider.transform.right, 
+                0);
         }
     }
 }
