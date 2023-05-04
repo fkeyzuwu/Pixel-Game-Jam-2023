@@ -52,6 +52,7 @@ public class GrabObjects : MonoBehaviour
                 _grabbedObjectParent = hit.transform.parent;
                 _grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 _grabbedObject.transform.position = grabPoint.position;
+                _grabbedObject.transform.rotation = grabPoint.rotation;
                 _grabbedObject.transform.SetParent(grabParent);
                 UpdatePlayerForces();
             }
