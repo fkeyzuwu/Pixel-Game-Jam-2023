@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(
@@ -28,13 +29,43 @@ public class PlayerController : CharacterBasicController
     
     private float _horizontalInput;
 
+    private float coyoteTime = 0.15f;
+    private float coyoteTimeCounter;
+
+    private float jumpBufferTime = 0.15f;
+    private float jumpBufferCounter;
+
     private void Update()
     {
         CheckMovementInput();
 
-        if (Input.GetButtonDown("Jump") && CanJump())
+        if (IsGrounded())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
             Jump();
+            jumpBufferCounter = 0f;
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            coyoteTimeCounter = 0f;
         }
 
         if (Input.GetButtonDown("SwitchUniverse"))
@@ -49,12 +80,7 @@ public class PlayerController : CharacterBasicController
         Move(moveDelta);
     }
 
-    private bool CanJump()
-    {
-        return IsGrounded();
-    }
-
-    private bool IsGrounded()
+    private bool IsGrounded() 
     {
         Bounds boxColliderBounds = BoxCollider.bounds;
         RaycastHit2D raycastHit = Physics2D.BoxCast(
@@ -64,6 +90,7 @@ public class PlayerController : CharacterBasicController
             Vector3.down,
             0.1f,
             GameLayersManager.Instance.groundLayerMask | GameLayersManager.Instance.grabbableObjectsLayerMask);
+
         return raycastHit.collider != null;
     }
 
@@ -80,5 +107,4 @@ public class PlayerController : CharacterBasicController
         else if(_horizontalInput < 0)
             stickyPositions.transform.eulerAngles = new Vector3(0, 180, 0);
     }
-    
 }
