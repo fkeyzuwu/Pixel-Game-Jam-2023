@@ -237,7 +237,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   jumpForce: 16
-  startingUniverse: 0
   stickyPositions: {fileID: 2501628780419897423}
 --- !u!114 &5289295660221971296
 MonoBehaviour:
