@@ -19,14 +19,18 @@ public class UniverseSwitchManager : MonoBehaviour
     }
     #endregion
     
-    private Universe _currentUniverse = Universe.None;
+    [SerializeField] private Universe _currentUniverse;
     
     public delegate void OnUniverseChanged(Universe universe);
     public OnUniverseChanged OnUniverseChangedCallback;
 
+    private void Start()
+    {
+        OnUniverseChangedCallback?.Invoke(_currentUniverse);
+    }
+
     public void SwitchUniverse()
     {
-        if (_currentUniverse == Universe.None) return;
         _currentUniverse = _currentUniverse == Universe.Purple ? Universe.Red : Universe.Purple;
         OnUniverseChangedCallback?.Invoke(_currentUniverse);
     }

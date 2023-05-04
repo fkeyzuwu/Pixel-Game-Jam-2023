@@ -23,19 +23,10 @@ public class PlayerController : CharacterBasicController
     }
     #endregion
 
-    [Header("Universe Variables")]
-    [SerializeField] private Universe startingUniverse = Universe.None;
-
     [Header("Sticky Positions")] 
     [SerializeField] private GameObject stickyPositions;
     
     private float _horizontalInput;
-    
-    public override void Start()
-    {
-        base.Start();
-        UniverseSwitchManager.Instance.SetUniverse(startingUniverse);
-    }
 
     private void Update()
     {

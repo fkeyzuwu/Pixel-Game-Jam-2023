@@ -6,9 +6,13 @@ public class MovingPlatform : MonoBehaviour
 {
     //dont change these
     [SerializeField] private GameObject platform;
+    private Collider2D[] platformColliders;
+    private SpriteRenderer platformRenderer;
+
     [SerializeField] private Waypoint waypoint1;
     [SerializeField] private Waypoint waypoint2;
 
+    [SerializeField] private Universe platformUniverse;
     private Waypoint currentWaypoint;
 
     [SerializeField] private float platformSpeed;
@@ -16,6 +20,14 @@ public class MovingPlatform : MonoBehaviour
     private void Start()
     {
         currentWaypoint = waypoint2;
+        platformRenderer = platform.GetComponent<SpriteRenderer>();
+        platformColliders = platform.GetComponents<Collider2D>();
+        UniverseSwitchManager.Instance.OnUniverseChangedCallback += TogglePlatformVisibility;
+    }
+
+    private void OnDestroy()
+    {
+        UniverseSwitchManager.Instance.OnUniverseChangedCallback -= TogglePlatformVisibility;
     }
 
     private void Update()
@@ -28,6 +40,30 @@ public class MovingPlatform : MonoBehaviour
         else
         {
             currentWaypoint = currentWaypoint == waypoint1 ? waypoint2 : waypoint1; //infinitely loop between the two waypoints
+        }
+    }
+
+
+    private void TogglePlatformVisibility(Universe universe)
+    {
+        if (platformUniverse == Universe.None) return; //always show moving platform
+
+        if(platformUniverse != universe) //hide platform
+        {
+            TogglePlatformVisibility(false);
+        }
+        else //show platform
+        {
+            TogglePlatformVisibility(true);
+        }
+    }
+
+    private void TogglePlatformVisibility(bool visible) 
+    {
+        platformRenderer.enabled = visible;
+        foreach (Collider2D collider in platformColliders)
+        {
+            collider.enabled = visible;
         }
     }
 }

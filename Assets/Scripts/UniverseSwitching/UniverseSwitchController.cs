@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class UniverseSwitchController : MonoBehaviour
 {
-    [SerializeField] public GameObject redUniverseGameObject;
-    [SerializeField] public GameObject purpleUniverseGameObject;
+    [SerializeField] public GameObject redUniverseStaticObjects;
+    [SerializeField] public GameObject purpleUniverseStaticObjects;
 
     private void Start()
     {
@@ -20,13 +20,13 @@ public class UniverseSwitchController : MonoBehaviour
     {
         if (universe == Universe.Red)
         {
-            redUniverseGameObject.SetActive(true);
-            purpleUniverseGameObject.SetActive(false);
+            redUniverseStaticObjects.SetActive(true);
+            purpleUniverseStaticObjects.SetActive(false);
         }
         else if (universe == Universe.Purple)
         {
-            purpleUniverseGameObject.SetActive(true);
-            redUniverseGameObject.SetActive(false);
+            redUniverseStaticObjects.SetActive(false);
+            purpleUniverseStaticObjects.SetActive(true);
         }
     }
 }
