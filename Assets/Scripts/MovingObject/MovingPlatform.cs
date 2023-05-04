@@ -23,6 +23,7 @@ public class MovingPlatform : MonoBehaviour
         platformRenderer = platform.GetComponent<SpriteRenderer>();
         platformColliders = platform.GetComponents<Collider2D>();
         UniverseSwitchManager.Instance.OnUniverseChangedCallback += TogglePlatformVisibility;
+        TogglePlatformVisibility(UniverseSwitchManager.Instance.currentUniverse);
     }
 
     private void OnDestroy()

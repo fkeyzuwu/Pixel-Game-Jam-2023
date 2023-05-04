@@ -9,6 +9,7 @@ public class UniverseSwitchController : MonoBehaviour
     private void Start()
     {
         UniverseSwitchManager.Instance.OnUniverseChangedCallback += UpdateUniverseGameObjects;
+        UpdateUniverseGameObjects(UniverseSwitchManager.Instance.currentUniverse);
     }
 
     private void OnDestroy()
