@@ -15980,6 +15980,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: WoodBlock
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 272
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cc54fbe51b16e4abdb2a4d808035ba
+      internalID: 173823086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -16747,6 +16768,7 @@ TextureImporter:
       SET1_Mainlev_build_97: 732553542
       SET1_Mainlev_build_98: -1017877273
       SET1_Mainlev_build_99: -133811290
+      WoodBlock: 173823086
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
