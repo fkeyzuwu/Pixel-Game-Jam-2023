@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    //dont change these
+    [Header("References")]
     [SerializeField] private GameObject platform;
+    [SerializeField] private Material redOutline;
+    [SerializeField] private Material purpleOutline;
     private Collider2D[] platformColliders;
     private SpriteRenderer platformRenderer;
-
     [SerializeField] private Waypoint waypoint1;
     [SerializeField] private Waypoint waypoint2;
 
+    [Header("Properties")]
     [SerializeField] private Universe platformUniverse;
+    [SerializeField] private float platformSpeed;
+
     private Waypoint currentWaypoint;
 
-    [SerializeField] private float platformSpeed;
 
     private void Start()
     {
         currentWaypoint = waypoint2;
         platformRenderer = platform.GetComponent<SpriteRenderer>();
+
+        if(platformUniverse != Universe.None)
+        {
+            platformRenderer.material = platformUniverse == Universe.Red ? redOutline : purpleOutline;
+        }
+
         platformColliders = platform.GetComponents<Collider2D>();
+
         UniverseSwitchManager.Instance.OnUniverseChangedCallback += TogglePlatformVisibility;
         TogglePlatformVisibility(UniverseSwitchManager.Instance.currentUniverse);
     }
