@@ -98,17 +98,4 @@ public class GrabObjects : MonoBehaviour
             0);
         return hits.Any(hit => hit.collider.gameObject != _grabbedObject.gameObject);
     }
-
-    private void FixedUpdate()
-    {
-        if (_grabbedObject == null) return;
-
-        Collider2D grabbedObjectCollider = _grabbedObject.gameObject.GetComponent<BoxCollider2D>();
-        BoxCastDrawer.BoxCastAndDraw(
-            grabbedObjectCollider.bounds.center,
-            grabbedObjectCollider.bounds.size,
-            0,
-            grabbedObjectCollider.transform.right,
-            0);
-    }
 }
