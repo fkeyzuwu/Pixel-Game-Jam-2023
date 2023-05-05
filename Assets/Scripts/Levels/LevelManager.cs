@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -24,12 +25,12 @@ public class LevelManager : MonoBehaviour
 
     private void StartLevel()
     {
-        FadeIn();
+        FadeIn(ExecuteAfterLevelStart);
     }
 
     public void EndLevel()
     {
-        FadeOut();
+        FadeOut(ExecuteAfterLevelEnd);
     }
 
     public void GoToNextLevel()
@@ -37,25 +38,37 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadSceneAsync(nextLevelSceneName);
     }
 
-    private void FadeIn()
+    public void RestartLevel()
     {
-        _canvas.enabled = true;
-        _canvasGroup.alpha = 1;
-        LeanTween.alphaCanvas(_canvasGroup, 0, fadeInTime).setOnComplete(() =>
+        FadeOut(() =>
         {
-            _canvas.enabled = false;
-            executeAfterLevelStart?.Invoke();
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         });
     }
 
-    private void FadeOut()
+    private void FadeIn(Action functionAfterFadeIn)
+    {
+        _canvas.enabled = true;
+        _canvasGroup.alpha = 1;
+        LeanTween.alphaCanvas(_canvasGroup, 0, fadeInTime).setOnComplete(functionAfterFadeIn);
+    }
+
+    private void ExecuteAfterLevelStart()
+    {
+        _canvas.enabled = false;
+        executeAfterLevelStart?.Invoke();
+    }
+
+    private void FadeOut(Action functionAfterFadeOut)
     {
         _canvas.enabled = true;
         _canvasGroup.alpha = 0;
-        LeanTween.alphaCanvas(_canvasGroup, 1, fadeOutTime).setOnComplete(() =>
-        {
-            executeAfterLevelEnd?.Invoke();
-            GoToNextLevel();
-        });
+        LeanTween.alphaCanvas(_canvasGroup, 1, fadeOutTime).setOnComplete(functionAfterFadeOut);
+    }
+
+    private void ExecuteAfterLevelEnd()
+    {
+        executeAfterLevelEnd?.Invoke();
+        GoToNextLevel();
     }
 }
