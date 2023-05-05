@@ -48,8 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 3176857982421642253}
+  redOutline: {fileID: 2100000, guid: 2eb31e6adda72424fae78afafde6d784, type: 2}
+  purpleOutline: {fileID: 2100000, guid: 4092f5137bef17647a8b43c079daddf4, type: 2}
   waypoint1: {fileID: 2983707823787257621}
   waypoint2: {fileID: 2983707825002327869}
+  platformUniverse: 0
   platformSpeed: 3
 --- !u!1 &3176857982421642253
 GameObject:
@@ -80,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 3176857982421642253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 567300306084109388}
@@ -127,7 +130,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -737200541, guid: 06b43dcc7f9b2bc449ac3c6466a2134f, type: 3}
+  m_Sprite: {fileID: -2085627731, guid: 06b43dcc7f9b2bc449ac3c6466a2134f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,18 +154,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.015701294, y: -0.16014075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.7395668, y: 0.5792384}
   m_EdgeRadius: 0
 --- !u!70 &8577291048565008164
 CapsuleCollider2D:
@@ -177,8 +180,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_Size: {x: 0.9, y: 0.5}
+  m_Offset: {x: -0.006279456, y: 0.11}
+  m_Size: {x: 2.6898148, y: 0.24879923}
   m_Direction: 1
 --- !u!114 &8772131390323626891
 MonoBehaviour:
