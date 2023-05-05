@@ -7,6 +7,7 @@ public abstract class HybridUniverseObject : MonoBehaviour
     void Start()
     {
         UniverseSwitchManager.Instance.OnUniverseChangedCallback += ChangeObject;
+        ChangeObject(UniverseSwitchManager.Instance.currentUniverse);
     }
 
     void OnDestroy()
