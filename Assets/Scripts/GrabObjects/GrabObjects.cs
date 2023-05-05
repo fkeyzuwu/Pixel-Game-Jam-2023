@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using Debug = UnityEngine.Debug;
@@ -95,31 +96,7 @@ public class GrabObjects : MonoBehaviour
             0,
             grabbedObjectCollider.transform.right, 
             0);
-        foreach (var hit in hits)
-        {
-            Debug.Log(hit.collider.tag);
-            Debug.Log(hit.collider);
-            if (hit.collider.gameObject != _grabbedObject.gameObject)
-            {
-                return true;
-            }
-        }
-
-        return false;
-
+        return hits.Any(hit => hit.collider.gameObject != _grabbedObject.gameObject);
     }
-
-    public void FixedUpdate()
-    {
-        if (_grabbedObject != null)
-        {
-            Collider2D grabbedObjectCollider = _grabbedObject.gameObject.GetComponent<BoxCollider2D>();
-            RaycastHit2D hit = BoxCastDrawer.BoxCastAndDraw(
-                grabbedObjectCollider.bounds.center,
-                grabbedObjectCollider.bounds.size,
-                0,
-                grabbedObjectCollider.transform.right, 
-                0);
-        }
-    }
+    
 }
