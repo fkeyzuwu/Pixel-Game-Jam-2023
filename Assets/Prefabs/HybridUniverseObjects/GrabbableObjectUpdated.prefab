@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6179529261466571123}
   - component: {fileID: 6179529261466571124}
   m_Layer: 7
-  m_Name: GrabbableObject
+  m_Name: GrabbableObjectUpdated
   m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
