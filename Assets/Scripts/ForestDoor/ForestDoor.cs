@@ -24,6 +24,11 @@ public class ForestDoor : MonoBehaviour
         ToggleDoorVisibility(UniverseSwitchManager.Instance.currentUniverse);
     }
 
+    private void OnDestroy()
+    {
+        UniverseSwitchManager.Instance.OnUniverseChangedCallback -= ToggleDoorVisibility;
+    }
+
     public void UnLockDoor()
     {
         if (_isDoorLocked)
