@@ -16010,7 +16010,7 @@ TextureImporter:
         width: 64
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -16018,6 +16018,27 @@ TextureImporter:
       bones: []
       spriteID: c387f09ed5c270f4b8f3f4b03b3e3d0f
       internalID: -2085627731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platform-2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa4a6969edb2494c8866b57fda148e5
+      internalID: 970970181
       vertices: []
       indices: 
       edges: []
@@ -16791,6 +16812,7 @@ TextureImporter:
       SET1_Mainlev_build_98: -1017877273
       SET1_Mainlev_build_99: -133811290
       WoodBlock: 173823086
+      platform-2: 970970181
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
