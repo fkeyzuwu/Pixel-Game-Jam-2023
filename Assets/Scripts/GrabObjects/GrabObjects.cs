@@ -98,5 +98,4 @@ public class GrabObjects : MonoBehaviour
             0);
         return hits.Any(hit => hit.collider.gameObject != _grabbedObject.gameObject);
     }
-    
 }
