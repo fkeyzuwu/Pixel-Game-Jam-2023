@@ -6,6 +6,6 @@ public class HintHolder : MonoBehaviour
 
     public void ShowHint()
     {
-        StartCoroutine(HintManager.Instance.ShowHint(hintData));
+        HintManager.Instance.ShowHint(hintData);
     }
 }
