@@ -14020,7 +14020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045947305661161972, guid: b529d5b150dbe5e4b9f8207f5627e055, type: 3}
       propertyPath: m_TagString
-      value: GrabbableObject
+      value: Rock
       objectReference: {fileID: 0}
     - target: {fileID: 3473705286794516859, guid: b529d5b150dbe5e4b9f8207f5627e055, type: 3}
       propertyPath: m_Sprite
@@ -15005,7 +15005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045947305661161972, guid: b529d5b150dbe5e4b9f8207f5627e055, type: 3}
       propertyPath: m_TagString
-      value: GrabbableObject
+      value: Rock
       objectReference: {fileID: 0}
     - target: {fileID: 3473705286794516859, guid: b529d5b150dbe5e4b9f8207f5627e055, type: 3}
       propertyPath: m_Sprite
@@ -15040,6 +15040,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4990304404965282944, guid: 074275130b01c264f8994949666df799, type: 3}
+      propertyPath: triggerWithTagName
+      value: Rock
+      objectReference: {fileID: 0}
     - target: {fileID: 4990304404965282944, guid: 074275130b01c264f8994949666df799, type: 3}
       propertyPath: triggerExitEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -17582,6 +17586,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4990304404965282944, guid: 074275130b01c264f8994949666df799, type: 3}
+      propertyPath: triggerWithTagName
+      value: Rock
+      objectReference: {fileID: 0}
     - target: {fileID: 4990304404965282944, guid: 074275130b01c264f8994949666df799, type: 3}
       propertyPath: triggerExitEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -25546,7 +25554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045947305661161972, guid: b529d5b150dbe5e4b9f8207f5627e055, type: 3}
       propertyPath: m_TagString
-      value: GrabbableObject
+      value: Rock
       objectReference: {fileID: 0}
     - target: {fileID: 3473705286794516859, guid: b529d5b150dbe5e4b9f8207f5627e055, type: 3}
       propertyPath: m_Sprite
@@ -33006,6 +33014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4990304404965282944, guid: 074275130b01c264f8994949666df799, type: 3}
+      propertyPath: triggerWithTagName
+      value: Rock
+      objectReference: {fileID: 0}
     - target: {fileID: 4990304404965282944, guid: 074275130b01c264f8994949666df799, type: 3}
       propertyPath: triggerExitEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
