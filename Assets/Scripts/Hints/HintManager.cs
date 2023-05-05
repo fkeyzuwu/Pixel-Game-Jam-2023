@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,7 +36,12 @@ public class HintManager : MonoBehaviour
         hintBorder.transform.localScale = Vector3.zero;
     }
 
-    public IEnumerator ShowHint(HintData hintData)
+    public void ShowHint(HintData hintData)
+    {
+        StartCoroutine(PlayHint(hintData));
+    }
+    
+    private IEnumerator PlayHint(HintData hintData)
     {
         EnableHint(hintData.text);
         yield return new WaitForSeconds(hintData.durationInSeconds);

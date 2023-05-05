@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6880275993805995737}
   - component: {fileID: 6880275993805995742}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
