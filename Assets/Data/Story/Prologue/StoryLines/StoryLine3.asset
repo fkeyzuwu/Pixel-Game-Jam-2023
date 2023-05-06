@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eec6c71177bab14e8761112a9910905, type: 3}
+  m_Name: StoryLine3
+  m_EditorClassIdentifier: 
+  sentences:
+  - "Suddenly, Oliver's gaze fixated on a peculiar sight\u2014a small, vibrant blue
+    creature darting through the underbrush. Its radiant hue stood out amidst the
+    greenery, beckoning Oliver to follow."
+  - 'With hearts brimming with anticipation, Oliver trailed the enchanting blue creature
+    through the forest. '
+  backgroundImage: {fileID: 21300000, guid: ba31d980f2ae61c4da697adb08e4401a, type: 3}

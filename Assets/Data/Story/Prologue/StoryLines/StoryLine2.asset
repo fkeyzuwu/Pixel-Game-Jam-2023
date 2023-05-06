@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: StoryLine2
   m_EditorClassIdentifier: 
   sentences:
-  - Testing part 2
-  backgroundImage: {fileID: 21300000, guid: 2f10e791d7fbf2e4784a1ced5fd9d281, type: 3}
+  - As they walked hand in hand along the meandering trail, Oliver's eyes scanned
+    the surroundings with wide-eyed wonder.
+  - Tall trees reached for the sky, their branches whispering secrets to the wind.
+    Sunlight danced through the canopy, casting a mottled tapestry on the forest
+    floor.
+  backgroundImage: {fileID: 21300000, guid: 8b64de1bb8054d446a966f42957df591, type: 3}

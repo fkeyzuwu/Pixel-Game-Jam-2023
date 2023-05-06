@@ -15,3 +15,6 @@ MonoBehaviour:
   StoryLines:
   - {fileID: 11400000, guid: 76854155a96a3884195e9011f96b3491, type: 2}
   - {fileID: 11400000, guid: 73941992c2622bc438b5d0b498f43d8e, type: 2}
+  - {fileID: 11400000, guid: 56faa3dcfe3c9d74da661c255db03f92, type: 2}
+  - {fileID: 11400000, guid: 80b04eea4bf3171499b42ac5a7ccbcb8, type: 2}
+  - {fileID: 11400000, guid: 475ea632606e22e4ca6e4e2d010618c8, type: 2}

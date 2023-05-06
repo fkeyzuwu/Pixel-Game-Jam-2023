@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,6 +21,7 @@ public class StoryTellerManager : MonoBehaviour
         else
         {
             Instance = this;
+            _inStoryMode = false;
             _storyLines = new Queue<StoryLine>();
             _sentences = new Queue<string>();
         }
@@ -31,14 +33,27 @@ public class StoryTellerManager : MonoBehaviour
 
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI hintText;
     [SerializeField] private Animator animator;
+    [SerializeField] private UnityEvent afterStoryFinishedActions;
 
+    private bool _inStoryMode;
     private Queue<StoryLine> _storyLines;
     private Queue<string> _sentences;
     private UnityEvent _afterStoryActions;
 
+    private void Update()
+    {
+        if (_inStoryMode && Input.GetKeyDown(KeyCode.E))
+        {
+            DisplayNextSentence();
+        }
+
+    }
+    
     public void StartStory(Story story)
     {
+        _inStoryMode = true;
         _storyLines.Clear();
         _sentences.Clear();
         foreach (var storyLine in story.StoryLines)
@@ -51,6 +66,8 @@ public class StoryTellerManager : MonoBehaviour
 
     private void DisplayNextStoryLine()
     {
+        text.text = "";
+        StopAllCoroutines();
         if (_storyLines.Count == 0)
         {
             EndStory();
@@ -59,7 +76,6 @@ public class StoryTellerManager : MonoBehaviour
 
         StoryLine storyLine = _storyLines.Dequeue();
         backgroundImage.sprite = storyLine.backgroundImage;
-        text.text = "";
         LeanTween.value(backgroundImage.gameObject, SetSpriteAlpha, 0f, 1f, 1f).setOnComplete(() =>
         {
             animator.SetBool(IsOpen, true);
@@ -74,13 +90,14 @@ public class StoryTellerManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        text.text = "";
+        StopAllCoroutines();
         if (_sentences.Count == 0)
         {
             DisplayNextStoryLine();
             return;
         }
-
-        StopAllCoroutines();
+        
         string sentence = _sentences.Dequeue();
         StartCoroutine(TypeSentence(sentence));
     }
@@ -97,7 +114,14 @@ public class StoryTellerManager : MonoBehaviour
 
     private void EndStory()
     {
-        animator.SetBool(IsOpen, false);
+        StopAllCoroutines();
+        text.text = "";
+        hintText.text = "";
+        _inStoryMode = false;
+        LeanTween.value(backgroundImage.gameObject, SetSpriteAlpha, 1f, 0f, 1f).setOnComplete(() =>
+        {
+            afterStoryFinishedActions?.Invoke();
+        });
     }
     
     private void SetSpriteAlpha(float val)

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: StoryLine1
   m_EditorClassIdentifier: 
   sentences:
-  - Hey testing
-  - testing
-  backgroundImage: {fileID: 21300000, guid: 5ca124238cb9d4d4089a3dda214e5216, type: 3}
+  - Once upon a time, in a quaint little village nestled amidst rolling hills, lived
+    a curious and adventurous child named Oliver.
+  - One sunny morning, his mother, Mrs. Jenkins, decided to take him on a leisurely
+    stroll through the nearby forest, hoping to immerse him in the wonders of nature.
+  backgroundImage: {fileID: 21300000, guid: 460cd5134804ead4e9729d2826cd26ed, type: 3}

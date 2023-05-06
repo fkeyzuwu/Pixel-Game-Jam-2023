@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Prologue : MonoBehaviour
 {
@@ -10,12 +11,9 @@ public class Prologue : MonoBehaviour
             StoryTellerManager.Instance.StartStory(story);    
     }
 
-    private void Update()
+    public void LoadScene(string sceneName)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            StoryTellerManager.Instance.DisplayNextSentence();
-        }
-
+        SceneManager.LoadSceneAsync(sceneName);
     }
+    
 }
