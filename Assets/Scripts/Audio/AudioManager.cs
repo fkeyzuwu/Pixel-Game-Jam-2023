@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup musicGroup;
     public AudioMixerGroup sfxGroup;
 
+    [Header("Music Sources")]
+    [SerializeField] private AudioSource forestMusic;
+
     private void Awake()
     {
         if(Instance == null)
@@ -33,6 +36,9 @@ public class AudioManager : MonoBehaviour
             sound.source = audioSource;
             soundsDict[sound.name] = sound;
         }
+
+        //forestMusic.Play();
+        //forestMusicReverbStart.PlayDelayed(forestMusic.clip.length);
     }
 
     public void PlaySound(string name)
