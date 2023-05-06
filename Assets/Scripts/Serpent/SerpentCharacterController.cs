@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SerpentCharacterController : CharacterBasicController
@@ -12,19 +13,20 @@ public class SerpentCharacterController : CharacterBasicController
     private float floatPhase = 0f;
     private float floatSpeed = 0.1f;
     private float floatAmount = 35f; //the higher the value, the less extreme the effect
-
-    private bool isStopped = false;
+    private SpriteRenderer _spriteRenderer;
+    
+    [SerializeField] private bool isStopped = false;
 
     [SerializeField] private ParticleSystem particles;
     private void Awake()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         foreach(Transform child in waypointObject) 
         {
             waypoints.Add(child.GetComponent<Waypoint>());
         }
 
-        LeanTween.alpha(gameObject, 0f, 0f);
-        LeanTween.alpha(gameObject, 1, 1f);
+        LeanTween.value(gameObject, SetSpriteAlpha, 0, 1f, 1f);
         particles.Play();
     }
 
@@ -88,5 +90,20 @@ public class SerpentCharacterController : CharacterBasicController
         Rigidbody.velocity = Vector2.zero;
         GetComponent<ParticleSystem>().Stop();
         LeanTween.alpha(gameObject, 0, 2.5f).setOnComplete(() => Destroy(gameObject));
+    }
+
+    public void StopSerpentFromMoving()
+    {
+        isStopped = true;
+    }
+    
+    public void ResumeSerpentMovement()
+    {
+        isStopped = false;
+    }
+    
+    private void SetSpriteAlpha(float val)
+    {
+        _spriteRenderer.color = new Color(1f, 1f, 1f, val);
     }
 }
