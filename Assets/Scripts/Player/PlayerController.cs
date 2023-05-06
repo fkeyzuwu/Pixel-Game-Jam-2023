@@ -26,6 +26,7 @@ public class PlayerController : CharacterBasicController
 
     [Header("Sticky Positions")] 
     [SerializeField] private GameObject stickyPositions;
+    [SerializeField] private BoxCollider2D groundCheckBoxCastPosition;
     
     private float _horizontalInput;
 
@@ -34,12 +35,14 @@ public class PlayerController : CharacterBasicController
 
     private float jumpBufferTime = 0.15f;
     private float jumpBufferCounter;
+    
+    public bool IsGrounded { get; private set; }
 
     private void Update()
     {
         CheckMovementInput();
 
-        if (IsGrounded())
+        if (IsGroundedCheck())
         {
             coyoteTimeCounter = coyoteTime;
         }
@@ -57,7 +60,7 @@ public class PlayerController : CharacterBasicController
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0f)
         {
             Jump();
             jumpBufferCounter = 0f;
@@ -80,18 +83,23 @@ public class PlayerController : CharacterBasicController
         Move(moveDelta);
     }
 
-    private bool IsGrounded() 
+    private bool IsGroundedCheck() 
     {
-        Bounds boxColliderBounds = BoxCollider.bounds;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(
+        Bounds boxColliderBounds = groundCheckBoxCastPosition.bounds;
+        /*RaycastHit2D raycastHit = Physics2D.Raycast(
+            groundCheckRayCastPosition.position,
+            Vector3.down,
+            0.025f,
+            GameLayersManager.Instance.groundLayerMask | GameLayersManager.Instance.grabbableObjectsLayerMask);*/
+        RaycastHit2D raycastHit = BoxCastDrawer.BoxCastAndDraw(
             boxColliderBounds.center,
             boxColliderBounds.size,
             0,
             Vector3.down,
-            0.1f,
+            0.025f,
             GameLayersManager.Instance.groundLayerMask | GameLayersManager.Instance.grabbableObjectsLayerMask);
-
-        return raycastHit.collider != null;
+        IsGrounded = (raycastHit.collider != null);
+        return IsGrounded;
     }
 
     private void SwitchUniverse()
