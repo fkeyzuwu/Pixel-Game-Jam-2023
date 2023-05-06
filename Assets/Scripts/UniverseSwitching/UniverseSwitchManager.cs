@@ -26,7 +26,7 @@ public class UniverseSwitchManager : MonoBehaviour
 
     public void SwitchUniverse()
     {
-        //if(currentUniverse == Universe.None) //TODO: WHEN IN FINAL VERSION OF THE GAME UNCOMMENT
+        if (currentUniverse == Universe.None) return ;
         currentUniverse = currentUniverse == Universe.Red ? Universe.Purple : Universe.Red;
 
         if (currentUniverse  == Universe.Red)
