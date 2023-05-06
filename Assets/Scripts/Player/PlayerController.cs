@@ -35,7 +35,6 @@ public class PlayerController : CharacterBasicController
 
     private float jumpBufferTime = 0.15f;
     private float jumpBufferCounter;
-    
     public bool IsGrounded { get; private set; }
 
     private void Update()
@@ -98,7 +97,14 @@ public class PlayerController : CharacterBasicController
             Vector3.down,
             0.025f,
             GameLayersManager.Instance.groundLayerMask | GameLayersManager.Instance.grabbableObjectsLayerMask);
+        bool previousIsGrounded = IsGrounded;
         IsGrounded = (raycastHit.collider != null);
+
+        if (IsGrounded == true && previousIsGrounded == false) //landed
+        {
+            AudioManager.Instance.PlaySound("Land");
+        }
+
         return IsGrounded;
     }
 

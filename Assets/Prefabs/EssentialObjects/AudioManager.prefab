@@ -78,13 +78,13 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 98a9ccc8cc461c448bd38172922361bc, type: 3}
     - {fileID: 8300000, guid: ac7eaa0654e9ef046a64a92ee25e46a1, type: 3}
-    volume: 0.56
+    volume: 0.07
   - name: Land
     source: {fileID: 0}
     clips:
     - {fileID: 8300000, guid: 1881ba4fdaf233c4384b92a391c5a4be, type: 3}
     - {fileID: 8300000, guid: 54c783f3479bd8947b2fee85cdd0c86c, type: 3}
-    volume: 0.505
+    volume: 0.07
   - name: PickupRing
     source: {fileID: 0}
     clips:

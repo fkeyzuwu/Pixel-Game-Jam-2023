@@ -38,6 +38,7 @@ public class CharacterBasicController : MonoBehaviour
     protected void Jump()
     {
         Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, jumpForce);
+        AudioManager.Instance.PlaySound("Jump");
     }
 
     public void RestoreMovementSpeedToDefault()
