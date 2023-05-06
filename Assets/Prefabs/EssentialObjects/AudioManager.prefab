@@ -50,7 +50,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 08307a245ddfb874ea0e9a0a382b67fd, type: 3}
     - {fileID: 8300000, guid: 620f52e2b08f4834fa94b90e252ad5eb, type: 3}
-    volume: 0.56
+    volume: 0.2
   - name: Footsteps
     source: {fileID: 0}
     clips:

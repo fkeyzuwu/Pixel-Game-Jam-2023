@@ -111,8 +111,8 @@ CanvasGroup:
   m_GameObject: {fileID: 224961412713670878}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &224961413017993963
 GameObject:
@@ -160,7 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackScreenCanvas: {fileID: 224961412713670878}
-  fadeTime: 2
+  fadeInTime: 2
+  fadeOutTime: 1
   executeAfterLevelStart:
     m_PersistentCalls:
       m_Calls:

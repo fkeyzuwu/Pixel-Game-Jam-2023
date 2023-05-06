@@ -42,6 +42,11 @@ public class PlayerController : CharacterBasicController
 
     private void Update()
     {
+        if (Input.GetButtonDown("Escape"))
+        {
+            PauseMenu.Instance.Toggle();
+        }
+
         CheckMovementInput();
         bool isGrounded = IsGroundedCheck();
 
