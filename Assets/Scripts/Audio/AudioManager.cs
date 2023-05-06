@@ -8,9 +8,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     public Sound[] sounds;
     private Dictionary<string, Sound> soundsDict = new Dictionary<string, Sound>();
-    [SerializeField] private AudioMixerGroup masterGroup;
-    [SerializeField] private AudioMixerGroup musicGroup;
-    [SerializeField] private AudioMixerGroup sfxGroup;
+    public AudioMixerGroup masterGroup;
+    public AudioMixerGroup musicGroup;
+    public AudioMixerGroup sfxGroup;
 
     private void Awake()
     {
