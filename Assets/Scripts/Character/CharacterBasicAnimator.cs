@@ -10,7 +10,7 @@ public class CharacterBasicAnimator : MonoBehaviour
     private static readonly int Horizontal = Animator.StringToHash("Horizontal");
 
     private CharacterBasicController _characterController;
-    private Animator _animator;
+    protected Animator _animator;
 
     public virtual void Start()
     {
