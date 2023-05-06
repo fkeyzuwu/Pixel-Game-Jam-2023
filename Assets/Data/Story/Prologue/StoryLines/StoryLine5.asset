@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StoryLine5
   m_EditorClassIdentifier: 
   sentences:
-  - Undeterred, Oliver forged ahead, navigating through an enchanted mysetrious forest
-    The blue creature, always just out of reach, led him deeper into this realm of
-    mystery and wonder.
+  - Oliver forged ahead, navigating through an enchanted mysetrious forest. The blue
+    creature, always just out of reach, led him deeper into this realm of mystery
+    and wonder.
   backgroundImage: {fileID: 21300000, guid: 3f287492a70b08d45a67666db23e9330, type: 3}
