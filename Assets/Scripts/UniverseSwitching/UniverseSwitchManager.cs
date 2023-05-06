@@ -28,12 +28,32 @@ public class UniverseSwitchManager : MonoBehaviour
     {
         //if(currentUniverse == Universe.None) //TODO: WHEN IN FINAL VERSION OF THE GAME UNCOMMENT
         currentUniverse = currentUniverse == Universe.Red ? Universe.Purple : Universe.Red;
+
+        if (currentUniverse  == Universe.Red)
+        {
+            AudioManager.Instance.PlaySound("EnterRedUniverse");
+        }
+        else if(currentUniverse == Universe.Purple)
+        {
+            AudioManager.Instance.PlaySound("EnterPurpleUniverse");
+        }
+
         OnUniverseChangedCallback?.Invoke(currentUniverse);
     }
 
     public void SetUniverse(Universe universe)
     {
         currentUniverse = universe;
+
+        if (currentUniverse == Universe.Red)
+        {
+            AudioManager.Instance.PlaySound("EnterRedUniverse");
+        }
+        else if (currentUniverse == Universe.Purple)
+        {
+            AudioManager.Instance.PlaySound("EnterPurpleUniverse");
+        }
+
         OnUniverseChangedCallback?.Invoke(currentUniverse);
     }
 }

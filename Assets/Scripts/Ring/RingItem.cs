@@ -22,6 +22,7 @@ public class RingItem : MonoBehaviour
         if (_wasRingPicked) return;
         _wasRingPicked = true;
         ringSprite.sprite = null;
+        AudioManager.Instance.PlaySound("PickupRing");
         StartCoroutine(UniverseChaos());
     }
     

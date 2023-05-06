@@ -298,6 +298,7 @@ MonoBehaviour:
   jumpForce: 16
   stickyPositions: {fileID: 2501628780419897423}
   groundCheckBoxCastPosition: {fileID: 6740750881044748466}
+  stepInterval: 0.25
 --- !u!114 &5289295660221971296
 MonoBehaviour:
   m_ObjectHideFlags: 0

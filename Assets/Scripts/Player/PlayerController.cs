@@ -35,14 +35,25 @@ public class PlayerController : CharacterBasicController
 
     private float jumpBufferTime = 0.15f;
     private float jumpBufferCounter;
-    
     public bool IsGrounded { get; private set; }
+
+    private float walkTimer = 0f;
+    [SerializeField] private float stepInterval;
 
     private void Update()
     {
         CheckMovementInput();
+        bool isGrounded = IsGroundedCheck();
 
-        if (IsGroundedCheck())
+        walkTimer += Time.deltaTime;
+
+        if (isGrounded && _horizontalInput != 0 && walkTimer >= stepInterval)
+        {
+            AudioManager.Instance.PlaySound("Footsteps");
+            walkTimer = 0f;
+        }
+
+        if (isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
         }
@@ -98,7 +109,14 @@ public class PlayerController : CharacterBasicController
             Vector3.down,
             0.025f,
             GameLayersManager.Instance.groundLayerMask | GameLayersManager.Instance.grabbableObjectsLayerMask);
+        bool previousIsGrounded = IsGrounded;
         IsGrounded = (raycastHit.collider != null);
+
+        if (IsGrounded == true && previousIsGrounded == false) //landed
+        {
+            AudioManager.Instance.PlaySound("Land");
+        }
+
         return IsGrounded;
     }
 

@@ -28,6 +28,7 @@ public class SerpentCharacterController : CharacterBasicController
 
         LeanTween.value(gameObject, SetSpriteAlpha, 0, 1f, 1f);
         particles.Play();
+        AudioManager.Instance.PlaySound("Serpent");
     }
 
     private void FixedUpdate()
