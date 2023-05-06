@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62673716e02dcf49b06cd4bf1661298, type: 3}
+  m_Name: Prologue
+  m_EditorClassIdentifier: 
+  StoryLines:
+  - {fileID: 11400000, guid: 76854155a96a3884195e9011f96b3491, type: 2}
+  - {fileID: 11400000, guid: 73941992c2622bc438b5d0b498f43d8e, type: 2}
+  - {fileID: 11400000, guid: 56faa3dcfe3c9d74da661c255db03f92, type: 2}
+  - {fileID: 11400000, guid: 80b04eea4bf3171499b42ac5a7ccbcb8, type: 2}
+  - {fileID: 11400000, guid: 475ea632606e22e4ca6e4e2d010618c8, type: 2}
