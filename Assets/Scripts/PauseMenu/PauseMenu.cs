@@ -37,8 +37,8 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        Toggle();
         GameObject.Find("LevelManager").GetComponent<LevelManager>().RestartLevel();
-        pauseMenuUi.SetActive(false);
     }
 
     public void OpenOptionsMenu()
@@ -57,17 +57,17 @@ public class PauseMenu : MonoBehaviour
 
     public void ChangeMasterVolume(float volume)
     {
-        AudioManager.Instance.masterGroup.audioMixer.SetFloat("MasterVolume", volume);
+        AudioManager.Instance.masterGroup.audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
     }
 
     public void ChangeMusicVolume(float volume)
     {
-        AudioManager.Instance.masterGroup.audioMixer.SetFloat("MusicVolume", volume);
+        AudioManager.Instance.masterGroup.audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
     }
 
     public void ChangeSfxVolume(float volume)
     {
-        AudioManager.Instance.masterGroup.audioMixer.SetFloat("SfxVolume", volume);
+        AudioManager.Instance.masterGroup.audioMixer.SetFloat("SfxVolume", Mathf.Log10(volume) * 20);
     }
 
     public void Exit()

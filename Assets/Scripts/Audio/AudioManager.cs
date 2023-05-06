@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,20 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public Sound[] sounds;
+
+   
+
     private Dictionary<string, Sound> soundsDict = new Dictionary<string, Sound>();
+
+    
+
     public AudioMixerGroup masterGroup;
     public AudioMixerGroup musicGroup;
     public AudioMixerGroup sfxGroup;
+
+    [Header("Music Sources")]
+    [SerializeField] private AudioSource forestMusic;
+    [SerializeField] private AudioSource endingMusic;
 
     private void Awake()
     {
@@ -27,11 +38,15 @@ public class AudioManager : MonoBehaviour
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
-            audioSource.volume = sound.volume;
+            float volume = sound.volume;
+            audioSource.volume = volume;
             audioSource.outputAudioMixerGroup = sfxGroup;
             sound.source = audioSource;
             soundsDict[sound.name] = sound;
         }
+
+        //forestMusic.Play();
+        //forestMusicReverbStart.PlayDelayed(forestMusic.clip.length);
     }
 
     public void PlaySound(string name)
@@ -40,14 +55,10 @@ public class AudioManager : MonoBehaviour
         sound.source.PlayOneShot(sound.GetClip());
     }
 
-    public void PlayMusic(string name)
+    public void PlayFinalMusic()
     {
-        FadeInMusic(name);
-    }
-
-    private void FadeInMusic(string name)
-    {
-        //todo lean tween
+        forestMusic.Stop();
+        endingMusic.Play();
     }
 
     [System.Serializable]
@@ -57,7 +68,7 @@ public class AudioManager : MonoBehaviour
         [HideInInspector] public AudioSource source;
         public AudioClip[] clips;
         private int currentClipIndex = -1;
-        [Range(0f, 1f)] public float volume;
+        [Range(0.0001f, 1f)] public float volume;
 
         public AudioClip GetClip()
         {
