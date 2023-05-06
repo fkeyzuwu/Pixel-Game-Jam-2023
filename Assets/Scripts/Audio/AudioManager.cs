@@ -27,7 +27,8 @@ public class AudioManager : MonoBehaviour
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
-            audioSource.volume = sound.volume;
+            float volume = sound.volume;
+            audioSource.volume = volume;
             audioSource.outputAudioMixerGroup = sfxGroup;
             sound.source = audioSource;
             soundsDict[sound.name] = sound;
@@ -57,7 +58,7 @@ public class AudioManager : MonoBehaviour
         [HideInInspector] public AudioSource source;
         public AudioClip[] clips;
         private int currentClipIndex = -1;
-        [Range(0f, 1f)] public float volume;
+        [Range(0.0001f, 1f)] public float volume;
 
         public AudioClip GetClip()
         {
