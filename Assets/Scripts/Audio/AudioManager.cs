@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,20 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public Sound[] sounds;
+
+   
+
     private Dictionary<string, Sound> soundsDict = new Dictionary<string, Sound>();
+
+    
+
     public AudioMixerGroup masterGroup;
     public AudioMixerGroup musicGroup;
     public AudioMixerGroup sfxGroup;
 
     [Header("Music Sources")]
     [SerializeField] private AudioSource forestMusic;
+    [SerializeField] private AudioSource endingMusic;
 
     private void Awake()
     {
@@ -47,14 +55,10 @@ public class AudioManager : MonoBehaviour
         sound.source.PlayOneShot(sound.GetClip());
     }
 
-    public void PlayMusic(string name)
+    public void PlayFinalMusic()
     {
-        FadeInMusic(name);
-    }
-
-    private void FadeInMusic(string name)
-    {
-        //todo lean tween
+        forestMusic.Stop();
+        endingMusic.Play();
     }
 
     [System.Serializable]

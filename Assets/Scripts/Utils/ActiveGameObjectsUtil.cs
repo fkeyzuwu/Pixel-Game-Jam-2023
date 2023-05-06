@@ -10,5 +10,7 @@ public class ActiveGameObjectsUtil : MonoBehaviour
         {
             go.SetActive(true);
         }
+
+        AudioManager.Instance.PlaySound("WhiteNoise");
     }
 }
