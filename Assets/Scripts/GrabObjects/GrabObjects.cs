@@ -59,6 +59,7 @@ public class GrabObjects : MonoBehaviour
                 _grabbedObject.transform.position = grabPoint.position;
                 _grabbedObject.transform.rotation = grabPoint.rotation;
                 _grabbedObject.transform.SetParent(grabParent);
+                AudioManager.Instance.PlaySound("Grab");
                 UpdatePlayerForces();
             }
             else
@@ -68,6 +69,7 @@ public class GrabObjects : MonoBehaviour
                 _grabbedObject.transform.SetParent(_grabbedObjectParent);
                 _grabbedObject = null;
                 _grabbedObjectParent = null;
+                AudioManager.Instance.PlaySound("Drop");
                 UpdatePlayerForces();
             }
         }
