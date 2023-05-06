@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: StoryLine2
   m_EditorClassIdentifier: 
   sentences:
-  - Oliver finally stepped back through the ancient door, ready to return to his
-    mother's waiting arms. As he emerged from the forest, he expected to find Mrs.
-    Jenkins anxiously awaiting his return, but to his surprise, he saw her standing
-    nearby, a peaceful smile on her face.
+  - 'Oliver finally stepped back through the ancient door, ready to return to his
+    mother''s waiting arms. '
+  - As he emerged from the forest, he expected to find Mrs. Jenkins anxiously awaiting
+    his return, but to his surprise, he saw her standing nearby, a peaceful smile
+    on her face.
   - Confusion and relief washed over Oliver. Had he been gone for days, weeks, or
     even longer? But as he approached his mother, she held out her arms and enfolded
     him in a warm embrace.
