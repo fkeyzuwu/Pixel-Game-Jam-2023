@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eec6c71177bab14e8761112a9910905, type: 3}
+  m_Name: StoryLine2
+  m_EditorClassIdentifier: 
+  sentences:
+  - Oliver finally stepped back through the ancient door, ready to return to his
+    mother's waiting arms. As he emerged from the forest, he expected to find Mrs.
+    Jenkins anxiously awaiting his return, but to his surprise, he saw her standing
+    nearby, a peaceful smile on her face.
+  - Confusion and relief washed over Oliver. Had he been gone for days, weeks, or
+    even longer? But as he approached his mother, she held out her arms and enfolded
+    him in a warm embrace.
+  - '"Oh, my dear Oliver," she whispered, her voice tinged with both joy and relief.
+    "You''ve only been gone for a few minutes. I was beginning to worry, but now
+    here you are, safe and sound."'
+  - How could his grand adventure, which felt like a lifetime, have only lasted a
+    few minutes?
+  - The mystery of it all gnawed at Oliver's thoughts, leaving him with a lingering
+    sense of wonder.
+  backgroundImage: {fileID: 21300000, guid: 0a049d54986825946a65ab019f023bf5, type: 3}
