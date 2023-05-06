@@ -88,8 +88,8 @@ MonoBehaviour:
   - name: PickupRing
     source: {fileID: 0}
     clips:
-    - {fileID: 8300000, guid: 8ec6c696f02633c4db35b04b8a0ca95f, type: 3}
-    volume: 1
+    - {fileID: 8300000, guid: 99a3ae162f368e6499942958c35def33, type: 3}
+    volume: 0.9
   - name: EnterRedUniverse
     source: {fileID: 0}
     clips:
