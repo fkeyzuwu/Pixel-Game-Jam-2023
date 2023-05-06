@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public Sound[] sounds;
     private Dictionary<string, Sound> soundsDict = new Dictionary<string, Sound>();
+    [SerializeField] private AudioMixerGroup musicGroup;
+    [SerializeField] private AudioMixerGroup sfxGroup;
 
     private void Awake()
     {
@@ -24,6 +27,7 @@ public class AudioManager : MonoBehaviour
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
             audioSource.volume = sound.volume;
+            audioSource.outputAudioMixerGroup = sfxGroup;
             sound.source = audioSource;
             soundsDict[sound.name] = sound;
         }
