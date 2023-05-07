@@ -9,11 +9,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     public Sound[] sounds;
 
-   
-
     private Dictionary<string, Sound> soundsDict = new Dictionary<string, Sound>();
-
-    
 
     public AudioMixerGroup masterGroup;
     public AudioMixerGroup musicGroup;
@@ -44,9 +40,6 @@ public class AudioManager : MonoBehaviour
             sound.source = audioSource;
             soundsDict[sound.name] = sound;
         }
-
-        //forestMusic.Play();
-        //forestMusicReverbStart.PlayDelayed(forestMusic.clip.length);
     }
 
     public void PlaySound(string name)
@@ -59,6 +52,12 @@ public class AudioManager : MonoBehaviour
     {
         forestMusic.Stop();
         endingMusic.Play();
+    }
+
+    public void PlayMainMusic()
+    {
+        forestMusic.Play();
+        endingMusic.Stop();
     }
 
     [System.Serializable]
